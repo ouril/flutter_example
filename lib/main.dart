@@ -5,8 +5,7 @@ void main() => runApp(
 
     new MaterialApp(
       title: "Layouts",
-      home: new Home(),
-      color: Colors.greenAccent
+      home: new MakeItRain(),
     )
 );
 

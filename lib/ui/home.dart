@@ -1,72 +1,81 @@
 import 'package:flutter/material.dart';
 
-// ignore: missing_identifier
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      backgroundColor: Colors.lightGreen,
-      appBar: AppBar(
-        title: Text('My Fancy Dress'),
-      ),
-      body: Container(
-        child:
-            new InkWell(
-              highlightColor: Colors.green,
-              child: new Text("Button!"),
-              onTap: () => debugPrint("Hello!!!"),
-            ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        child: Container(height: 50.0,),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    );
-  }
-  }
+class MakeItRain extends StatefulWidget {
 
-class Welcome extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return new Material(
-        color: Colors.blue,
-        child: new Center(
-            child: new Text(
-                "hello from widget!!",
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 34.5
-                )
-            )
-        ));
-    // return null;
+  State<StatefulWidget> createState() {
+    return new MakeItRainState();
   }
 
 }
 
-class MyWelcome extends StatelessWidget {
+class MakeItRainState extends State<MakeItRain>{
+
+  int _money = 0;
+
+  void _rainMoney() {
+    setState(() {_money += 100;});
+
+  }
+
   @override
   Widget build(BuildContext context) {
-    return new Material(
-        color: Colors.orange,
-        child: new Center(
-          child: new Text(
-              "Hello my Widget",
-              textDirection: TextDirection.ltr,
-              style: new TextStyle(
-                  color: Colors.blue,
-                  fontWeight: FontWeight.w100,
-                  fontSize: 45
+    // TODO: implement build
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text("Make it Rain!"),
+        backgroundColor: Colors.green,
+
+      ),
+      body: new Container(
+
+        child: new Column(
+          children: <Widget>[
+            new Center(
+              child: new Text(
+                "Get Started",
+                style: new TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 30
+                )
               )
-          ),
-        )
+            ),
+            new Expanded(
+                child: new Center(
+                    child: new Text(
+                  "Money $_money",
+                  style: new TextStyle(
+                    color: Colors.greenAccent,
+                    fontSize: 47,
+                    fontWeight: FontWeight.w800
+                  )
+                ))
+            ),
+            new Expanded(
+                child: new Center (
+                child: new FlatButton(
+                    color: Colors.lightGreen,
+                    onPressed: _rainMoney,
+                    child: buildText("Lets rain") )
+            ))
+
+          ],
+        ),
+      ),
     );
   }
+}
+
+
+Text buildText(String str){
+  return new Text(
+    str,
+    textDirection: TextDirection.ltr,
+    style: new TextStyle(
+      color: Colors.white70,
+      fontSize: 20,
+      fontWeight: FontWeight.w600
+    )
+  );
 }
