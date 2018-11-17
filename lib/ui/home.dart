@@ -4,14 +4,31 @@ import 'package:flutter/material.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new Scaffold(
+      backgroundColor: Colors.lightGreen,
       appBar: AppBar(
-      title: Text("hello!!!"),
-      backgroundColor: Colors.amberAccent,
+        title: Text('My Fancy Dress'),
       ),
+      body: Container(
+        child:
+            new InkWell(
+              highlightColor: Colors.green,
+              child: new Text("Button!"),
+              onTap: () => debugPrint("Hello!!!"),
+            ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(height: 50.0,),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
-}
+  }
 
 class Welcome extends StatelessWidget {
   @override

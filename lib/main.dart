@@ -4,8 +4,9 @@ import './ui/home.dart';
 void main() => runApp(
 
     new MaterialApp(
-      title: "Hello app",
-      home: MyWelcome()
+      title: "Layouts",
+      home: new Home(),
+      color: Colors.greenAccent
     )
 );
 
