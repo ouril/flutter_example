@@ -39,7 +39,7 @@ class LoginState extends State<LoginPage>{
             ),
             new Container(
               width: 420.0,
-              height: 280.0,
+              height: 220.0,
               color: Colors.white,
               alignment: Alignment.topCenter,
               child: new Column(
@@ -71,10 +71,56 @@ class LoginState extends State<LoginPage>{
 
                 ],
               ),
+                  new Padding(padding: new EdgeInsets.all(20.0)),
+                  new Row(
+                    children: <Widget>[
+                      new Container(
+                        margin: const EdgeInsets.only(left: 40.0),
+                        child: new RaisedButton(
+                            onPressed: () => debugPrint("the button is pressed"),
+                          color: Colors.orange,
+                          child: new Text(
+                            "login",
+                            style: new TextStyle(
+                              color: Colors.white,
+                              fontSize: 20
+                            )
+                          )
+                        )
+                      ),
+
+                      new Container(
+                          margin: const EdgeInsets.only(left: 120.0),
+                          child: new RaisedButton(
+                              onPressed: () => debugPrint("the button is pressed"),
+                              color: Colors.orange,
+                              child: new Text(
+                                  "clear",
+                                  style: new TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20
+                                  )
+                              )
+                          )
+                      )
+
+                    ],
+
+                  )
               ]
             ),
 
         ),
+            new Padding(padding: const EdgeInsets.all(15.4)),
+            new Center(
+              child: new Text(
+                'welcome, Andrej',
+                style: new TextStyle(
+                  fontSize: 30,
+                  color: Colors.white
+                )
+              ),
+            )
       ]),
 
 
