@@ -17,6 +17,23 @@ class LoginState extends State<LoginPage>{
   final TextEditingController _userEditingController = new TextEditingController();
   final TextEditingController _passEditingController = new TextEditingController();
 
+  String _welcome_string = "Nothing";
+
+  void _erased(){
+    setState(() {
+      _userEditingController.clear();
+      _passEditingController.clear();
+    });
+  }
+
+  void _login(){
+    setState(() {
+      if (_userEditingController.text.isNotEmpty && _userEditingController.text.isNotEmpty){
+        _welcome_string = _userEditingController.text;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -29,7 +46,7 @@ class LoginState extends State<LoginPage>{
       backgroundColor: Colors.blueGrey,
       body: new Container(
         alignment: Alignment.topCenter,
-        child: new Column(
+        child: new ListView(
           children: <Widget>[
             new Image.asset(
               'images/face.png',
@@ -59,10 +76,12 @@ class LoginState extends State<LoginPage>{
                         ),
                       ),
                        new TextField(
+                         obscureText: true,
                           controller: _passEditingController,
                           decoration: new InputDecoration(
                           hintText: 'Enter User pass',
-                          icon: new Icon(Icons.terrain)
+
+                          icon: new Icon(Icons.terrain),
                       ),
                     )
                           ]
@@ -77,7 +96,7 @@ class LoginState extends State<LoginPage>{
                       new Container(
                         margin: const EdgeInsets.only(left: 40.0),
                         child: new RaisedButton(
-                            onPressed: () => debugPrint("the button is pressed"),
+                            onPressed: _login,
                           color: Colors.orange,
                           child: new Text(
                             "login",
@@ -92,8 +111,9 @@ class LoginState extends State<LoginPage>{
                       new Container(
                           margin: const EdgeInsets.only(left: 120.0),
                           child: new RaisedButton(
-                              onPressed: () => debugPrint("the button is pressed"),
+                              onPressed: _erased,
                               color: Colors.orange,
+
                               child: new Text(
                                   "clear",
                                   style: new TextStyle(
@@ -114,7 +134,7 @@ class LoginState extends State<LoginPage>{
             new Padding(padding: const EdgeInsets.all(15.4)),
             new Center(
               child: new Text(
-                'welcome, Andrej',
+                'welcome, $_welcome_string',
                 style: new TextStyle(
                   fontSize: 30,
                   color: Colors.white
