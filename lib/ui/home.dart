@@ -16,6 +16,15 @@ class MakeItRainState extends State<MakeItRain>{
   void _rainMoney() {
     setState(() {_money += 100;});
 
+
+  }
+
+
+  ColorSwatch _setColor(){
+    if (_money < 3000){
+      return  Colors.greenAccent;
+    }
+    return Colors.amber;
   }
 
   @override
@@ -46,7 +55,8 @@ class MakeItRainState extends State<MakeItRain>{
                     child: new Text(
                   "Money $_money",
                   style: new TextStyle(
-                    color: Colors.greenAccent,
+                    color: _setColor(),
+
                     fontSize: 47,
                     fontWeight: FontWeight.w800
                   )
@@ -66,6 +76,11 @@ class MakeItRainState extends State<MakeItRain>{
     );
   }
 }
+
+
+
+
+
 
 
 Text buildText(String str){
